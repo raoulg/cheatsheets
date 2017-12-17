@@ -1,0 +1,189 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Cheatsheet
+% LaTeX Template
+% Version 1.0 (12/12/15)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% Original author:
+% Michael Müller (https://github.com/cmichi/latex-template-collection) with
+% extensive modifications by Vel (vel@LaTeXTemplates.com)
+%
+% License:
+% The MIT License (see included LICENSE file)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[10pt]{scrartcl} % 11pt font size
+
+\usepackage[utf8]{inputenc} % Required for inputting international characters
+\usepackage[T1]{fontenc} % Output font encoding for international characters
+
+\usepackage[margin=0pt, landscape]{geometry} % Page margins and orientation
+
+\usepackage{graphicx} % Required for including images
+\usepackage{color} % Required for color customization
+\usepackage{url} % Required for the \url command to easily display URLs
+\usepackage{textcomp}
+
+\usepackage[ % This block contains information used to annotate the PDF
+colorlinks=false, 
+pdftitle={Cheatsheet Wiskunde I}, 
+pdfauthor={R.Grouls}, 
+]{hyperref}
+
+\setlength{\unitlength}{1mm} % Set the length that numerical units are measured in
+\setlength{\parindent}{0pt} % Stop paragraph indentation
+
+\renewcommand{\dots}{\ \dotfill{}\ } % Fills in the right amount of dots
+
+\newcommand{\command}[2]{#1~\dotfill{}~#2\\} % Custom command for adding a shorcut
+\newcommand{\raw}{$\rightarrow$}
+%\newcommand{\sectiontitle}[1]{\paragraph{#1} \ \\} % Custom command for subsection titles
+\newcommand{\sectiontitle}[1]{\vfill \textbf{#1}\\}
+
+%----------------------------------------------------------------------------------------
+
+\begin{document}
+
+\begin{picture}(297,210) % Create a container for the page content
+
+%----------------------------------------------------------------------------------------
+%	TITLE SECTION 
+%----------------------------------------------------------------------------------------
+
+\put(10,200){ % Position on the page to put the title
+\begin{minipage}[t]{210mm} % The size and alignment of the title
+\section*{ModProg -- I} % Title
+\end{minipage}
+}
+
+%----------------------------------------------------------------------------------------
+%	FIRST COLUMN SPECIFICATION
+%----------------------------------------------------------------------------------------
+
+\put(10,190){ % Divide the page
+\begin{minipage}[t]{85mm} % Create a box to house text
+\sectiontitle{1.1-2: Programmeren}
+\command{computer}{processor en geheugen}
+\command{opdracht}{processor verandert geheugen}
+\command{methode}{opdr.\raw methode}
+\command{klasse}{opdr.\raw meth.\raw klasse}
+\command{namespace}{opdr.\raw meth.\raw klas.\raw namespace}
+\command{variabele}{geheugenplaats met een naam}
+\command{object}{variabelen\raw object}
+\sectiontitle{1.3 Programmeerparadigmas}
+\command{declaratief}{functie-based}
+\command{declaratief-functioneel}{legt funct. verbanden}
+\command{declaratief-logisch}{propositielogica}
+\command{imperatief}{opdracht-based (gebiedend)}
+\command{enkel imperatief}{bv: Fortran, Basic}
+\command{procedureel}{imperatief + methoden}
+\command{procedureel}{bv: Python, PHP}
+\command{object-geori\"enteerd}{procedureel + objecten}
+\command{object-geori\"enteerd}{bv: C\#, Java, C++}
+\sectiontitle{1.5 Vertalen}
+\command{assembler}{vertaalt 1 sourcecode voor 1 processor}
+\command{compiler}{vertaalt 1 sourcecode voor alle processors}
+\command{interpreter}{voert sourcecode direct uit}
+\command{Java}{compiler+interpreter \raw bytecode}
+\command{C\#}{compiler+compiler \raw intermediate language}
+\sectiontitle{2. C\# programma's}
+\command{opbouw broncode}{class\{methode\{opdracht\}\}\}}
+\command{class}{public/private}
+\command{class-members}{(public/private)(static)(type/void)}
+\command{method body}{declaratie/opdracht}
+\command{declaratie}{reserveert geheugen}
+\command{declaratie}{\texttt{int x; string naam;}}
+\command{opdracht}{aanroep/toekenning}
+\command{opdracht-aanroep}{roept andere methode aan}
+\command{opdracht-aanroep}{\texttt{Console.Writeline(x);}}
+\command{opdracht-toekenning}{verandert het geheugen}
+\command{opdracht-toekenning}{\texttt{x = 1; naam.Text = "a";}}
+\command{property}{eigenschap van een object}
+\command{subklasse}{subversie van bestaande klasse}
+\command{subklasse}{\texttt{class scherm : Form}}
+\command{constructormethode}{maakt \texttt{new} object}
+\command{constructormethode}{methode met naam van class}
+%----------------------------------------------------------------------------------------
+\end{minipage} % End the first column of text
+} % End the first division of the page
+%----------------------------------------------------------------------------------------
+%	SECOND COLUMN SPECIFICATION 
+%----------------------------------------------------------------------------------------
+\put(105,200){ % Divide the page
+\begin{minipage}[t]{85mm} % Create a box to house text
+\command{\texttt{this}}{object dat door methode bewerkt wordt}
+\command{\texttt{public}}{bruikbaar in andere klasses}
+\command{property van object}{\texttt{naam.Length}}
+\command{niet-static methoden}{werkt op object}
+\command{niet-static methoden}{\texttt{naam.ToUpper();}}
+\command{static}{class ipv object}
+\command{static properties}{\texttt{Color.Yellow}}
+\command{static methoden}{\texttt{Console.Writeline(x)}}
+\command{\texttt{Main}}{altijd \texttt{static}}
+\command{constructor}{nooit \texttt{static}}
+\command{eventhandler}{\texttt{this.Paint+=teken;}}
+\command{eventhandler}{toekenning (geen aanroep)}
+\sectiontitle{3. Tekenen}
+\command{library}{\texttt{using System.Drawing;}}
+\command{\texttt{Paint}-event}{\texttt{(object o, PaintEventArgs pea)}}
+\command{\texttt{pea.Graphics}}{property van \texttt{pea}}
+\command{\texttt{pea.Graphics.DrawLine()}}{tekentlijnen}
+\command{\texttt{DrawLine,Rectangle,Ellipse}}{gebruiken \texttt{Pen}}
+\command{\texttt{FillRectangle,Ellipse}}{gebruiken \texttt{Brush}}
+\command{\texttt{DrawString}}{gebruikt \texttt{Brush}}
+\sectiontitle{3.3-5 Berekeningen}
+\command{expressie}{alle code met een waarde}
+\command{expressie}{int, string, object-waarde,constructor \texttt{new}}
+\command{\texttt{new Form()}}{heeft \texttt{Form}-object als waarde}
+\command{expressie}{kun je \textit{uitrekenen} en heeft \textit{waarde}}
+\command{opdracht}{kun je \textit{uitvoeren} en heeft \textit{effect}}
+\command{expressies}{kunnen deel uitmaken van opdracht}
+\command{modulo \%}{8\%3=2}
+\command{\texttt{const}}{onaanpasbare declaratie}
+\command{\texttt{var}}{declaratie met automatische typebepaling}
+
+
+
+%----------------------------------------------------------------------------------------
+\end{minipage} % End the second column of text
+} % End the second division of the page
+%----------------------------------------------------------------------------------------
+%	THIRD COLUMN SPECIFICATION 
+%----------------------------------------------------------------------------------------
+\put(200,200){ % Divide the page
+\begin{minipage}[t]{85mm} % Create a box to house tex
+
+\sectiontitle{}
+
+
+\sectiontitle{}
+
+%	FOOTNOTE
+%----------------------------------------------------------------------------------------
+
+
+\linethickness{0.2mm} % Thickness of the footer line
+{\color{black}\line(1,0){30}} % Print the line with a custom color
+
+\footnotesize{
+Created by Raoul Grouls, 2017\\
+
+				
+Released under the MIT license.}
+
+%----------------------------------------------------------------------------------------
+
+\end{minipage} % End the third column of text
+} % End the third division of the page
+\end{picture} % End the container for the entire page
+
+%----------------------------------------------------------------------------------------
+
+\end{document}

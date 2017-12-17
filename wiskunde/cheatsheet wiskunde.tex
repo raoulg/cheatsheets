@@ -1,0 +1,195 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Cheatsheet
+% LaTeX Template
+% Version 1.0 (12/12/15)
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+% Original author:
+% Michael Müller (https://github.com/cmichi/latex-template-collection) with
+% extensive modifications by Vel (vel@LaTeXTemplates.com)
+% License:
+% The MIT License (see included LICENSE file)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[10pt]{scrartcl} % 11pt font size
+%\usepackage[utf8]{inputenc} % Required for inputting international characters
+\usepackage[T1]{fontenc} % Output font encoding for international characters
+\usepackage[margin=0pt, landscape]{geometry} % Page margins and orientation
+\usepackage{amsmath, amssymb, textcomp, mathrsfs}
+\usepackage{graphicx} % Required for including images
+\usepackage{color} % Required for color customization
+\usepackage{url} % Required for the \url command to easily display URLs
+
+%% handige shortcuts
+\newcommand{\raw}{\rightarrow}
+\newcommand{\sse}{\subseteq}
+\newcommand{\power}{\mathscr{P}}
+
+\usepackage[ % This block contains information used to annotate the PDF
+colorlinks=false, 
+pdftitle={Cheatsheet Wiskunde I}, 
+pdfauthor={R.Grouls}, 
+]{hyperref}
+
+\setlength{\unitlength}{1mm} 
+\setlength{\parindent}{0pt}
+\renewcommand{\dots}{\ \dotfill{}\ } % Fills in the right amount of dots
+\newcommand{\command}[2]{{#1}~\dotfill{}~#2\\} % Custom command for adding a shorcut
+\newcommand{\sectiontitle}[1]{\vfill \textbf{#1}\\}
+
+\begin{document}
+\begin{picture}(297,210) % Create a container for the page content
+
+\put(10,200){ % Position on the page to put the title
+\begin{minipage}[t]{210mm} % The size and alignment of the title
+\section*{Wiskunde voor KI - deel I} % Title
+\end{minipage}
+}
+%-------------------------------------------------------------------
+\put(10,190){ % Divide the page
+\begin{minipage}[t]{85mm} % Create a box to house text
+%---------------------------------------------------------------------
+\sectiontitle{\textsection3.2 Set definitions}
+\command{$A \subseteq B$}{$\forall x(x \in A \raw x \in B)$}
+\command{laat $Y=\{1,2\}$}{$1\in Y$}
+\command{$\{1\}\sse Y$}{$1\in\{1\}\raw 1\in Y$}
+\command{$A \nsubseteq B$}{$\exists x(x \in A\rightarrow x \notin B)$}
+\command{$A=B$}{$\forall A\forall B(A\sse B \wedge B\sse A)$}
+\command{$\power(A)$}{$\{X\mid X \sse A\}$}
+\command{$a\in\power(A)$}{$\iff a\sse A$}
+\command{$a\in A$}{$\ne a\sse A$}
+\command{$\power(A)$}{$2^i$ elementen voor $A=\{n_{1},...,n_{i}\}$}
+\command{$\power(\{a,b\})$}{$\{\emptyset,\{a\},\{b\},\{a,b\}\}$}
+
+%---------------------------------------------------------------------
+\sectiontitle{\textsection3.3 Set operations}			
+\command{$A\cup B$ (union)}{$\{x\mid x \in A \textrm{ of } x \in B\}$}
+\command{$A\cap B$ (intersection)}{$\{x\mid x \in A \textrm{ en } x \in B\}$}
+\command{A en B zijn disjoint}{wanneer $A\cap B=\emptyset$}
+\command{set difference A--B (of $\setminus$)}{$\{x\mid x \in A \textrm{ en }x\notin B \}$}
+\command{Cartesian product $A\times B$}{$\{(a,b)\mid a\in A \textrm{ en } b \in B$}
+\command{$\{a,b\}\times \{1,2\}$}{$\{(a,1),(a,2),(b,1),(b,2)\}$}
+\command{$A\times \emptyset$}{is gelijk aan $\emptyset$}
+%---------------------------------------------------------------------
+\sectiontitle{\textsection3.4 Families of Sets}
+\command{$\bigcup_{i=0}^{\infty}A_i$}{$\{x \mid x \in A_{n} \textrm{ for some }n\in \mathbb{N}\}$}
+\command{$\bigcap_{i=0}^{\infty}A_i$}{$\{x \mid x \in A_{n} \textrm{ for all }n\in \mathbb{N}\}$}
+\command{geen volgorde in $\bigcup$}{daarom ook goed: $\bigcup_{i\in\mathbb{N}}$}
+\command{$B_{i}=\{1,2,..,3i\}$}{$\bigcup_{i\in\mathbb{N}}B_{i}=\mathbb{N}$ , $\bigcap_{i\in\mathbb{N}}B_{i}=\{1,2,3\}$}
+\command{family of sets $\mathcal{A}$}{$\forall X(X\in \mathcal{A} \raw X\textrm{ is een set})$}
+\command{$\mathcal{A}$ is indexed by $I$}{$\mathcal{A}=\{A_{i}\}_{i\in I}$}
+\command{$\bigcup_{X\in\mathcal{A}}X$}{$\{x \mid x\in A \textrm{ for some }A \in \mathcal{A}\}$}
+\command{$\bigcap_{X\in\mathcal{A}}X$}{$\{x \mid x\in A \textrm{ for all }A \in \mathcal{A}\}$}
+\command{als $\mathcal{A}=\emptyset$}{dan $\bigcup_{X\in\mathcal{A}}X=\emptyset$}
+\command{als $\mathcal{A}=\emptyset$}{dan is $\bigcap_{X\in\mathcal{A}}X$ ongedefinieerd}
+%---------------------------------------------------------------------
+\sectiontitle{\textsection 4 Functies}
+Een functie (map) $f$ van A naar B, $f\colon A \raw B$, is een subset $F\sse A\times B$ zodat voor elke $a\in A$ \'e\'en paar $(a,b) \in F$ bestaat. $A$ is het domein, $B$ het codomein.\\
+\command{range van $f\colon A\raw B$}{$\{b\in B\mid \exists a\in A(f(a)=b)\}$}
+\command{$f\colon A \raw B$}{$f(x)\in B$}
+\command{union of  disjoint subsets}{$\begin{cases}
+    x, \textrm{if } x\ge0 \\-1, \textrm{if }x<0
+    \end{cases}$}
+\command{not disjoint, but well-defined}{$\begin{cases}
+    x^2, \textrm{if } x\ge3 \\x+6, \textrm{if }x\le3
+    \end{cases}$}
+
+%----------------------------------------------------------------------------------------
+\end{minipage} % End the first column of text
+} % End the first division of the page
+\put(105,200){ % Divide the page
+\begin{minipage}[t]{85mm} % Create a box to house text
+%------------------------------------------------------------------------
+%------------------------------------------------------------------------
+\command{well-defined}{potential problems don't occur}
+\command{equal functions}{$(A,B,F)$ zijn gelijk}
+\command{constante $f:A\raw B$}{$\exists (b\in B)\forall (a\in A)(f(a)=b)$}
+\command{identiteit($1_{x}$) $f:A\raw A $}{$\forall a(a\in A \raw f(a)=a)$}
+\command{inclusie $f:A\raw B$}{$\forall(a\in A)(A\sse B \wedge f(a)=a)$}
+gegeven $f:A\raw B$ en $C\sse A$ :\\
+\command{restrictie $f\mid_{C}:C\raw B$}{$\forall(c\in C)(f\mid_{C}(a)=f(a)$}
+gegeven $f:A\raw B$ en $C\supseteq A$ :\\
+\command{extensie $g: C\raw B$ van $f$}{$\forall(a\in A)(g(a)=f(a)$}
+\command{projectie $\pi_{1}\colon A\times B\raw A$}{$\pi_{1}(a,b)=a$}
+\command{projectie $\pi_{2}\colon A\times B\raw B$}{$\pi_{2}(a,b)=b$}
+%------------------------------------------------------------------------
+%------------------------------------------------------------------------
+\sectiontitle{\textsection 4.2 Inverse Image}
+Laat functie $f\colon A\raw B$, subsets $P\sse A$ en $Q\sse B$\\
+\command{image set P:$f(P)$}{$\{b\in B\mid b=f(p) \textrm{ for some } p \in P\}$}
+\command{inverse set Q: $f^{-1}(Q)$}{$\{a\in A\mid f(a)\in Q\}$}
+\command{$f^{-1}(Q)$}{a subset of A}
+\command{inverse set: $f^{-1}(Q)$}{always defined for $Q \sse B$}
+\command{inverse function: $f^{-1}$}{doesn't always exist}
+\command{$g$ inverse voor $f$}{$f(g(x))=1_{B}\wedge g(f(x))=1_{A}$}
+\command{if $f^{-1}$ exists}{$f^{-1}:B\raw A$ (not subset of $A$)}
+%------------------------------------------------------------------------
+%------------------------------------------------------------------------
+\sectiontitle{\textsection 4.4 ...jective functions}
+\command{injectie}{iedereen heeft een eigen stoel}
+\command{injectie}{$\forall(x,y\in A)(x\ne y \raw f(x)\ne f(y))$}
+\command{injectie}{$\forall(x,y\in A)(f(x)=f(y)\raw x=y$}
+\command{surjectie}{alle stoelen zijn gevuld}
+\command{surjectie}{$\forall (b\in B)\exists(a\in A)(f(a)=b)$}
+\command{bijectie}{zowel injective als surjective}
+\command{bijectie$f\colon A\raw B$}{$A$ en $B$ evenveel elementen}
+\command{als $f$ bijectie}{dan $f^{-1}$ bijectie}
+\command{$f:X\raw Y$ een bijectie desda}{$f^{-1}$ bestaat}
+\sectiontitle{\textsection 5.1 Relations}
+\command{relation R from A to B}{$\bar{R}\sse A \times B$}
+\command{$aRb$}{if $(a,b)\in R$}
+Laat $R$ en $S$ relaties van $A$ naar $B$ zijn:\\
+\command{$R=S$}{$\forall(a\in A,b\in B)(aRb\iff aSb)$}
+\command{$R[x]$}{$\{y\in B\mid xRy \}$}
+\command{reflexive}{$\forall(x\in A)(xRx)$}
+\command{symmetric}{$\forall(x,y\in A)(xRy\raw yRx)$}
+\command{transitive}{$\forall(x,y,z\in A)(xRy\wedge yRz\raw xRz)$}
+\sectiontitle{\textsection 5.2 Equivalence}
+\command{equivalence}{reflexive, symmetric and transitive}
+\command{quotient set $A/\sim$}{$\{[x]\mid x\in A\}$}
+\command{partition}{punten van een taart}
+
+
+%----------------------------------------------------------------------------------------
+\end{minipage} % End the second column of text
+} % End the second division of the page
+
+\put(200,200){ % Divide the page
+\begin{minipage}[t]{85mm} % Create a box to house tex
+A partition of $A$ is a family $\mathcal{D}$ of non-empty subsets of $A$ such that:\\
+\command{partition \#1}{$(P,Q\in\mathcal{D}\wedge P\ne Q\raw P\cap Q=\emptyset)$}
+\command{partition \#2}{$\bigcup_{P\in\mathcal{D}}P=A$}
+\sectiontitle{\textsection 6 Infinity}
+\command{1:basisstap}{bewijs $P(0)$}
+\command{2:inductiestap}{bewijs $\forall(n\in\mathbb{N})(P(n)\raw P(n+1)$}
+\command{zelfde kardinaliteit $X\sim Y$}{als $f\colon X\raw Y$ bijectie }
+\command{$\mathbb{N}\sim$}{$\mathbb{N}_{>0}\sim\mathbb{Z}\sim\mathbb{Q}\sim\mathbb{N}\times\mathbb{N}$}
+\command{$f:\mathbb{N}\cup\{\{0\}\}\raw\mathbb{N}$}{$\begin{cases}f(\{0\})=0\\ n\in\mathbb{N}:f(n)=n+1\end{cases}$}
+\command{als $A\sim B$}{dan $B\sim A$}
+\command{als $A\sim B$ en $B\sim C$}{dan $A\sim C$}
+\command{X heet finite}{$\exists(n\in \mathbb{N})(X\sim\{1,2,...,n\})$}
+\command{$A$ is finite}{$B\sse A\raw B$ is finite}
+\command{X heet infinite}{als $X\ne$finite}
+\command{countably infinite}{$\sim\mathbb{N}$}
+\command{countable}{finite of $\sim\mathbb{N}$}
+\command{uncountable}{not countable}
+\command{$\mathbb{N}\sim\mathbb{Z}$ voor $f:\mathbb{Z}\raw\mathbb{N}$}{$f(n)= \begin{cases}
+    2n-1, \textrm{als } n>0 \\-2n, \textrm{als }n\le0
+    \end{cases}$}
+\command{$f:\{1,2,...,n\}\raw\mathbb{N}$}{$\exists q\forall i(f(q)\ge f(i)$}
+%----------------------------------------------------------------------------------------
+%	FOOTNOTE
+%----------------------------------------------------------------------------------------
+\linethickness{0.2mm} % Thickness of the footer line
+{\color{black}\line(1,0){30}} % Print the line with a custom color
+
+\footnotesize{
+Een subset van de set colleges Wiskunde voor KI 2017-2018 door Benjamin Rin.
+Verzameld door R. Grouls.\\
+\textbf{Notatie}: vanwege ruimtegebruik gebruik ik soms $\forall(a\in A)(...)$ in plaats van $\forall a(a\in A ...)$.
+
+}
+%----------------------------------------------------------------------------------------
+\end{minipage} % End the third column of text
+} % End the third division of the page
+\end{picture} % End the container for the entire page
+\end{document}

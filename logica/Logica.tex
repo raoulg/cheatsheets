@@ -1,0 +1,168 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Cheatsheet
+% LaTeX Template
+% Version 1.0 (12/12/15)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% Original author:
+% Michael Müller (https://github.com/cmichi/latex-template-collection) with
+% extensive modifications by Vel (vel@LaTeXTemplates.com)
+%
+% License:
+% The MIT License (see included LICENSE file)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[10pt]{scrartcl}
+\usepackage[margin=0pt, landscape]{geometry} % Page margins and orientation
+\usepackage{color} % Required for color customization
+\usepackage{url} % Required for the \url command to easily display URLs
+\setlength{\unitlength}{1mm} 
+\newcommand{\sectiontitle}[1]{\textsc{#1}\\}
+
+\newcommand{\entryi}[3]{\textbf{#1}\ \textit{#2}\ $\bullet$\ {#3}\\} 
+\newcommand{\entrys}[2]{\textbf{#1}\ $\bullet$\ {#2}\\}
+\usepackage{forest} % voor logische bomen
+\usepackage{amssymb}
+
+\newcommand{\ra}{\rightarrow}
+\newcommand{\lra}{\leftrightarrow}
+
+%----------------------------------------------------------------------------------------
+
+\begin{document}
+
+\begin{picture}(297,210) % Create a container for the page content
+
+%----------------------------------------------------------------------------------------
+%	TITLE SECTION 
+%----------------------------------------------------------------------------------------
+
+\put(10,200){ % Position on the page to put the title
+\begin{minipage}[t]{210mm} % The size and alignment of the title
+\section*{Logica} % Title
+\end{minipage}
+}
+
+%----------------------------------------------------------------------------------------
+%	FIRST COLUMN SPECIFICATION
+%----------------------------------------------------------------------------------------
+
+\put(10,190){ % Divide the page
+\begin{minipage}[t]{85mm} % Create a box to house text
+
+%----------------------------------------------------------------------------------------
+%	HEADING ONE
+%----------------------------------------------------------------------------------------
+
+\sectiontitle{Lecture 1}
+\entrys{Logic}{The \textit{systematic} study of \textit{valid} reasoning.}
+\entrys{Propositional logic}{logic of 'not','and','or',etc.}
+\entrys{Predicate logic}{logic of 'for all', 'for some', etc.}
+\entryi{Law of Excluded Middle}{LEM}{every statement is either true or false.}
+\entryi{Law of Non-Contradiction}{LNC}{no statement is both true and false}
+\entrys{Classical logic}{both \textit{LEM} and \textit{LNC} hold.}
+\entrys{Proposition}{a statement that is either true or false.}
+
+%----------------------------------------------------------------------------------------
+%	HEADING TWO
+%----------------------------------------------------------------------------------------	
+\sectiontitle{Lecture 2}			
+\entrys{Set}{an abstract collection of things, its \textit{members} or \textit{elements}. We can list its elements ($\mathbb{N}=\{1,2,3,..\}$) or give \textit{defining properties} ($\{x \in A : P(x)\}$) }
+\entrys{Axiom of Extensionality}{For all sets X, Y : X = Y iff for all objects x, $x \in X iff x \in Y$ (unordered: \{a,b\}=\{b,a\}, multiplicity: \{a,a,b\}=\{a,b\})}
+\entrys{Axiom of Separation}{$\{x:x\in X\ \&\  P(x)\}$ is a set. Restricting to sets already known to exist when defining new sets is safe.}
+\entrys{Union}{$X \cup Y = \{x:x\in X\ or\ x \in Y\}$.}
+\entrys{Intersection}{$X \cap Y = \{x:x\in X\ and\ x\in Y\}$}
+\entrys{Difference}{$X \setminus Y=\{x\in X : x\notin Y\}$ (fe $\{a,b\}\setminus \{b\}=\{a\}$)}
+\entrys{Subset}{$X \subseteq Y \Leftrightarrow(x \in X \Rightarrow x \in Y)$}
+\entrys{Power set}{$\wp(X)=\{Y:Y\subseteq X\}$ fe $\wp$(\{1,2\}) = \{$\emptyset$, \{1\}, \{2\}, \{1,2\} \}. Axiom : for alls sets X, $\wp$(X) is a set.}
+\entryi{Proof strategies}{(i)}{If you want to show a \textit{universal claim} holds (for all...), then show that it holds for an \textit{arbitrary} object.}
+\entryi{Proof strategies}{(ii)}{If you want to show a \textit{conditional claim} (if...then...) then show that you can get the "then"-part if you assume the "if"-part.}
+\entrys{Recursion rule}{Determines what's the \textit{n}-th place based on the places before and the starting point.}
+\entrys{Recursive definition of a set}{Give (\textit{a}) the starting point of the set (\textit{b}) rules to determine new members based on the old.}
+\entrys{Proof by induction}{We can easily prove things \textit{about} recursively defined sets. Proof that the statement hold for the first element. Then prove, using recursive rules, it must be true for the next element as well.}
+%----------------------------------------------------------------------------------------
+\end{minipage} % End the first column of text
+}
+ % End the first division of the page
+%----------------------------------------------------------------------------------------
+%	SECOND COLUMN SPECIFICATION 
+%----------------------------------------------------------------------------------------
+\put(105,200){ % Divide the page
+\begin{minipage}[t]{85mm} % Create a box to house text
+
+
+\sectiontitle{Lecture 3}
+\entrys{Formal language}{given by (\textit{a}) basic symbols (\textit{b}) rules for forming wffs.}
+\entryi{PropLog}{Alphabet}{(\textit{i})letters: $p_{0},p_{1},..$ (\textit{ii}) constant: $\perp$ (\textit{iii})connectives: $\neg,\wedge,\vee,\lra,\ra$ (\textit{iv}) auxiliary: ()}
+\entryi{PropLog}{FOR set}{(\textit{i}) $p_{i}\in FOR$ (\textit{ii}) $\perp\in FOR$ (\textit{iii}) $A\in FOR \Rightarrow \neg A\in FOR$ (\textit{iv}) $A,B\in FOR \Rightarrow (A\circ B)$}
+\entryi{PropLog}{Parsing Trees}{for every $A\in FOR$ there is a unique parsing tree T(A)}
+\entrys{Unique Readability Theorem}{every formula has \textit{one} correct way of reading it.}
+\entrys{Order}{From strong to weak: $\{\neg, \wedge\ or\ \vee,\ra, \lra\}$}
+\entrys{Occurence}{An \textit{occurence} of $\sigma$ in A is a node in T(A) labelled with $\sigma$.}
+\entrys{Function}{A \textit{function} $f:X \ra Y$ is a mapping that assings to every element $x\in X$ exactly one element $f(x)\in Y$. \textit{Domain}: set of all possible input. \textit{Range}: set of all possible output. \textit{Image}: The image of $x$ under $f$ : if $x\in X$ then $f(x) = Y$.}
+\entryi{Recursive definition of a function}{RD}{Define a function by (\textit{a})startingpoint and (\textit{b})recursive rules.}
+\entrys{Depth}{The depth of a formula (aka \textit{logical complexity}) measures the longest branch in T(A), starting at 0.}
+\entrys{Reasons for RD}{(\textit{i})Infinite sets of value by finite statements (\textit{ii}) Use recursively defined values on FOR to prove things about FOR.}
+
+\sectiontitle{Lecture 4-5}
+\entrys{Semantics}{Aim is to characterixe the notion of a true sentence (under a given interpretation) and of entailment(implicaties)}
+\entrys{Truth functions}{Truth-values: \{0,1\}=\textbf{2}. Every $p_{i}$ has a $V(p_{i})\in$ \textbf{2}. The connectives express \textit{truth-functions}.}
+\entrys{Interpretation}{V : FORM $\ra$\textbf{2} is an interpretation: $V(p_{i})=1$ iff $p_{i}$ is true; $V(p_{i})=0$ iff $p_{i}$ is false.}
+\entrys{Principle of Compositionality}{The meaning of a sentence is a function of the meaning of its parts.}
+\entrys{Principle of Truth-Functionality}{The truth-value of a sentence is a function of truth-values of its parts.}
+\entrys{Consequence}{$A\in FORM$ is a \textit{semantic consequence} of a set $\Gamma\in FORM$ iff it is impossible that all members of $\Gamma$ are true, without A being true as well: $\Gamma \models A$.}
+\entrys{Logical truth}{For $A\in FORM$ iff it's impossible for A to be false: $\models A$.}
+
+\end{minipage} % End the second column of text
+} % End the second division of the page
+%----------------------------------------------------------------------------------------
+%	THIRD COLUMN SPECIFICATION 
+%----------------------------------------------------------------------------------------
+\put(200,200){ % Divide the page
+\begin{minipage}[t]{85mm} % Create a box to house tex
+
+
+\entrys{Therefore}{Premisses support the conclusion: $\{A_{n}\}\therefore B$. This is valid iff $\{A_{n}\}\models B$.}
+\entrys{Functional complete}{A set is functionally complete if every truth-function can be expressed as a combination of $(A\circ B)$. There are smaller sets that are functionally complete (fe 'Scheffer Stroke' : $\{f|\}$)}
+\entryi{Truth tables}{constructing}{(\textit{i})write down all $p_{i}$ and the formula.(\textit{ii}) Make $2^{p_{i}}$ rows. Divide rows and fill with 1/0; repeat.(\textit{ii}) Work from bottom to top in the parsing tree.}
+\entryi{Truth tables}{Semantics checking}{(\textit{i})\textit{Logical Status} Tautology: all 1. Contingency: mixed. Contradiction: all 0. (\textit{ii})\textit{Equivalence} If formulas have the same truth-value, they are locigaly equivalent.(\textit{iii})\textit{Validity} $\{A_{n}\}\therefore B$ iff $\{A_{n}\}\models B$ iff ($\{\wedge A_{n}\}\ra B$ = tautology).}
+\entrys{Interpretation by recursion}{(\textit{i})V($\perp$)=0 (\textit{ii})V($\neg$A)=1-V(A) (\textit{iii})V(A$\wedge$B)=min(V(A),V(B)) (\textit{iv})V(A$\vee$B)=max(V(A),V(B)) (\textit{v})V(A$\ra$B)=max(1-V(A),V(B)) (\textit{vi}V(A$\lra$B)=1 if V(A)=V(B), 0 otherwise.}
+
+\sectiontitle{Lecture 6-7}
+\entrys{Proof theory}{$\Gamma\vdash A$ means there is a proof from $\Gamma$ to A. Obtain a proof system, such that $\Gamma\vdash A$ iff $\Gamma\models A$.}
+\entrys{Why Proof theory?}{(\textit{i})It is faster than large truth-tables. (\textit{ii}) Truth tables don't work for more advanced logics.}
+\entryi{Tableaus}{theorem}{$\Gamma\models A$ iff there is no interpretation V, such that $V\models\Gamma\cup\{\neg A\}$.}
+\entryi{Tableaus}{constructing}{(\textit{i})Write down all members of the set (root) (\textit{ii})Apply tableaux rules, first non-branching (\textit{iii})Close if there is a branch tohrough both A and $\neg$A or $\perp$.(\textit{iv}) Continue (\textit{ii}) and (\textit{iii}) till done. (\textit{v})\textit{closed} iff all branches closed, \textit{open} otherwise.}
+\entryi{Tableaus}{interpretation}{Pick an open branch $\mathfrak{B}$ and set $V(p_{i})=1$ if $p_{i}\in \mathfrak{B}$, $V(p_{i})=0$ otherwise.}
+\entryi{Tableaus}{proof}{A closed tableaux for $\Gamma\cup\{\neg A\}$ is proof for $\Gamma\vdash A$.}
+\entryi{Tableaus}{meta-theory}{If $\Gamma\vdash A$ then $\Gamma\models A$ (soundness) and if $\Gamma\models A$ then $\Gamma\vdash A$ (completeness).}
+
+%----------------------------------------------------------------------------------------
+%	FOOTNOTE
+%----------------------------------------------------------------------------------------
+
+
+\linethickness{0.2mm} % Thickness of the footer line
+{\color{black}\line(1,0){30}} % Print the line with a custom color
+
+\footnotesize{
+Recap of lectures by J.Korbmacher sept 2017\\
+Created by Raoul Grouls, 2017\\
+}
+
+%----------------------------------------------------------------------------------------
+
+\end{minipage} % End the third column of text
+} % End the third division of the page
+\end{picture} % End the container for the entire page
+
+%----------------------------------------------------------------------------------------
+
+\end{document}
