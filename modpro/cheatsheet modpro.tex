@@ -155,15 +155,14 @@ pdfauthor={R.Grouls},
 \command{\texttt{d = i;}}{coverteert \texttt{int} naar \texttt{double}}
 \command{\texttt{i = d;}}{\texttt{ERROR}}
 \command{\texttt{i = (int) d;}}{cast \texttt{double} naar \texttt{int}}
+\sectiontitle{5 Interactie}
+\command{geneste namespace}{\texttt{System.Windows.Forms} in \texttt{System}}
+\command{\texttt{Forms}}{bevat o.a. klassen \texttt{TextBox} en \texttt{Button}}
+\command{\texttt{Click}}{event-property van \texttt{Button}}
+\command{string naar double}{\texttt{double.Parse(invoer.Text);}}
+\command{double naar string}{\texttt{d.ToString();}}
 \sectiontitle{6.2-5: Herhaling}
-\command{\texttt{bool waarde}}{waarde is \texttt{true} of \texttt{false}}
-\command{\texttt{while(waarde)}}{herhaling bij \texttt{true}}
-\command{\texttt{while(waarde)}}{stopt bij \texttt{false}}
-\command{vergelijkings-operatoren}{ <, <=, >, >=, ==, !=}
-\command{\texttt{<, ==, !=}}{kleiner dan, is gelijk aan, ongelijk aan}
-\command{Logische operatoren}{\texttt{\&\&}(en), \texttt{||}(of), \texttt{!}(niet)}
-\command{\texttt{i++}}{\texttt{i} wordt opgehoogd}
-\command{\texttt{for(i=0;i<10;i++)}}{herhaalt 10x}
+\command{\texttt{bool waarde;}}{waarde is \texttt{true} of \texttt{false}}
 %----------------------------------------------------------------------------------------
 \end{minipage} % End the second column of text
 } % End the second division of the page
@@ -172,8 +171,28 @@ pdfauthor={R.Grouls},
 %----------------------------------------------------------------------------------------
 \put(200,200){ % Divide the page
 \begin{minipage}[t]{85mm} % Create a box to house tex
+\command{\texttt{while(waarde)}}{herhaling bij \texttt{true}}
+\command{\texttt{while(waarde)}}{stopt bij \texttt{false}}
+\command{vergelijkings-operatoren}{ <, <=, >, >=, ==, !=}
+\command{\texttt{<, ==, !=}}{kleiner dan, is gelijk aan, ongelijk aan}
+\command{Logische operatoren}{\texttt{\&\&}(en), \texttt{||}(of), \texttt{!}(niet)}
+\command{\texttt{i++}}{\texttt{i} wordt opgehoogd}
+\command{\texttt{for(i=0;i<10;i++)}}{herhaalt 10x}
 \command{niet uitgevoerde herhaling}{\texttt{while(1==0)}}
 \command{oneindige herhaling}{\texttt{while (1==1)}}
+\sectiontitle{9. Array's}
+\command{array}{object met lijst variabelen van \'e\'en type}
+\command{array declaratie}{\texttt{int [] k;}}
+\command{array toekenningsopdracht}{\texttt{k = new int[5];}}
+\command{array index}{array's start at \texttt{0}}
+\command{array waarden}{\texttt{k[0] = 12;}}
+\command{\texttt{l.Length}}{\texttt{5}}
+\command{\texttt{for(i=0;i<l.Length;i++)\{lijst[i]=12\}}}{alles 12}
+\command{array van objecten}{\texttt{Button [] knoppen;}}
+\command{array 2-dimensionaal}{int [,] m;}
+\command{array van arrays}{\texttt{int[][] n;}}
+\command{\texttt{n[1]=new int[5];n[2]=new int[10]}}{lengte 5 en 10}
+\command{overloaded methoden}{alleen andere input-parameters}
 %	FOOTNOTE
 %----------------------------------------------------------------------------------------
 \linethickness{0.2mm} % Thickness of the footer line
@@ -181,6 +200,7 @@ pdfauthor={R.Grouls},
 \footnotesize{\\
 Created by: \\
 Raoul Grouls, Casper van Laar\\
+Notatie: alle C\#-code is herkenbaar aan het \texttt{typewriter-font}
 2017
 }
 
