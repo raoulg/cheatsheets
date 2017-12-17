@@ -1,0 +1,269 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Cheatsheet
+% LaTeX Template
+% Version 1.0 (12/12/15)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% Original author:
+% Michael Müller (https://github.com/cmichi/latex-template-collection) with
+% extensive modifications by Vel (vel@LaTeXTemplates.com)
+%
+% License:
+% The MIT License (see included LICENSE file)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[10pt]{scrartcl} % 11pt font size
+
+\usepackage[utf8]{inputenc} % Required for inputting international characters
+\usepackage[T1]{fontenc} % Output font encoding for international characters
+
+\usepackage[margin=0pt, landscape]{geometry} % Page margins and orientation
+
+\usepackage{graphicx} % Required for including images
+\usepackage{color} % Required for color customization
+\usepackage{url} % Required for the \url command to easily display URLs
+
+\usepackage[ % This block contains information used to annotate the PDF
+colorlinks=false, 
+pdftitle={Cheatsheet}, 
+pdfauthor={Raoul Grouls}, 
+pdfsubject={shortcuts voor R}, 
+pdfkeywords={R, Cheatsheet}
+]{hyperref}
+
+\setlength{\unitlength}{1mm} % Set the length that numerical units are measured in
+\setlength{\parindent}{0pt} % Stop paragraph indentation
+
+\renewcommand{\dots}{\ \dotfill{}\ } % Fills in the right amount of dots
+
+\newcommand{\command}[2]{\texttt{#1}~\dotfill{}~#2\\} % Custom command for adding a shorcut
+
+%\newcommand{\sectiontitle}[1]{\paragraph{#1} \ \\} % Custom command for subsection titles
+\newcommand{\sectiontitle}[1]{\vfill \textbf{#1}\\}
+
+%----------------------------------------------------------------------------------------
+
+\begin{document}
+
+\begin{picture}(297,210) % Create a container for the page content
+
+%----------------------------------------------------------------------------------------
+%	TITLE SECTION 
+%----------------------------------------------------------------------------------------
+
+\put(10,200){ % Position on the page to put the title
+\begin{minipage}[t]{210mm} % The size and alignment of the title
+\section*{Cheatsheet R -- I} % Title
+\end{minipage}
+}
+
+%----------------------------------------------------------------------------------------
+%	FIRST COLUMN SPECIFICATION
+%----------------------------------------------------------------------------------------
+
+\put(10,190){ % Divide the page
+\begin{minipage}[t]{85mm} % Create a box to house text
+
+%----------------------------------------------------------------------------------------
+%	HEADING ONE
+%----------------------------------------------------------------------------------------
+
+\sectiontitle{Basics}
+\command{x <- y}{Asign to variable}
+\command{c(x,y,z)}{concatenate vector}
+\command{x\textasciicircum 2,sqrt(x)}{x squared, square root x}
+\command{abs(x)}{absolute value of x}
+\command{?$f$}{call help for function $f$}
+\command{args($f$)}{show arguments for function $f$}
+%----------------------------------------------------------------------------------------
+%	HEADING TWO
+%----------------------------------------------------------------------------------------	
+\sectiontitle{Workspaces and Files}			
+\command{getwd()}{get current working directory}
+\command{setwd()}{set current working directory}
+\command{ls()}{list objects in workingspace}
+\command{list.files(),dir()}{list all files}
+\command{dir.create("name")}{create dir "name" in pwd}
+\command{file.create("file.R")}{create file.R}
+\command{file.exist("file.R")}{check existence of file.R}
+\command{file.info("file.R")}{information about file.R}
+\command{file.info("file.R")\$size}{specific info (size)}
+\command{file.rename("file.R","file2.R")}{rename to file2.R}
+\command{file.copy("file.R","file2.R")}{copy}
+\command{file.path("file.R")}{relative path to file.R}
+\command{file.path("dir1",dir2)}{construct path dir1/dir2}
+\command{dir.create("dir1")}{create dir1}
+\command{dir.create(file.path("d1","d2",recursive=T))}{}
+\command{.}{created nested d1/d2}
+%----------------------------------------------------------------------------------------
+%	HEADING THREE
+%----------------------------------------------------------------------------------------	
+\sectiontitle{Sequences}
+\command{1:20}{1,2,3,...20}
+\command{pi:20}{ 3.14,4.14,5.14,...19.14}
+\command{15:1}{15,14,13,...1}
+\command{seq(1,10,by=0.5)}{1,1.5,2,...10}
+\command{seq(2,10,length=5)}{2,4,6,8,10}
+\command{length(x)}{length N of vector x}
+\command{1:length(x)}{1,2,3,...N}
+\command{seq(along.with=x)}{1,2,3,...N}
+\command{seq\_along(x)}{1,2,3,...N}
+\command{rep(0,times=5)}{(0 0 0 0 0)}
+\command{rep(c(0,1),times=2)}{(0 1 0 1)}
+\command{rep(c(0,1),each=2)}{(0 0 1 1)}
+\sectiontitle{Vectors: logical and text}
+\texttt{
+	\textgreater\,  x<-c(1,2,3) \hfill 
+	\textgreater\, str<-c("Hello","world") \hfill \\
+}
+\command{<;>;<=;>=;==;!=}{logical operators}
+
+%----------------------------------------------------------------------------------------
+\end{minipage} % End the first column of text
+} % End the first division of the page
+%----------------------------------------------------------------------------------------
+%	SECOND COLUMN SPECIFICATION 
+%----------------------------------------------------------------------------------------
+\put(105,200){ % Divide the page
+\begin{minipage}[t]{85mm} % Create a box to house text
+%----------------------------------------------------------------------------------------
+%	HEADING FOUR
+%----------------------------------------------------------------------------------------
+\command{|;\&;!}{OR,AND,NOT}
+\command{||;\&\&}{evaluates just the 1st element}
+\command{x>1}{FALSE TRUE TRUE}
+\command{5>8||6!=8\&\&4>3.9}{TRUE (AND before OR)}	
+\command{isTRUE(6>4)}{TRUE}
+\command{xor(TRUE,FALSE)}{TRUE (exclusive or)}
+\command{which(x>2)}{2 3}
+\command{any(x>2)}{TRUE}
+\command{all(x>2)}{FALSE}
+\command{paste(str,collapse=" ")}{"Hello world"}
+\command{str<-c(str,"!")}{"Hello","world","!"}
+\command{paste("Hello","!")}{"Hello !"}
+\command{paste(x,str,sep="")}{"1Hello" "2world","3!"}
+\command{paste(str,1:3,sep="-")}{"Hello-1" "world-2" "!-3"}
+%----------------------------------------------------------------------------------------
+%	HEADING FIVE
+%---------------------------------------------------------------------------------------	
+\sectiontitle{Missing valuesss} % Heading five
+\texttt{
+	\textgreater\, x<-c(1,NA,3) \\
+}
+\command{x*2}{2 NA 6}
+\command{is.na(x)}{FALSE TRUE FALSE}
+\command{sum(is.na(x))}{1}
+\command{rnorm(n,mean-0,sd=1)}{normal distribution}
+\command{sample(x,10,replace=T)}{sample 10 items}
+\command{0/0}{NaN (Not a Number)}
+\command{Inf-Inf}{NaN (Not a Number)}
+\sectiontitle{Subsets}
+\texttt{
+	\textgreater \, x<-c(7,NA,13) \hfill 
+	\textgreater \, y<-c(17,19,23)\hfill\\ 
+	\textgreater \, z<-c("foo","bar","qq")
+}\\
+\command{x[2:3]}{NA 13}
+\command{x[is.na(x)]}{NA}
+\command{x[!is.na(x)]}{7 13}
+\command{x[y>18]}{NA 13}
+\command{x[!is.na(x) \& y>18]}{13}
+\command{x[c(1,3)]}{7 13}
+\command{x[c(-2,-3)]}{7}
+\command{x[10]}{NA}
+\command{names(y)<-z}{foo|17 bar|19 qq|23}
+\command{y["bar"]}{bar|19}
+\command{a<-c(foo=17,bar=19,qq=23)}{foo|17 bar|19 qq|23}
+\command{identical(a,y)}{TRUE}
+\command{M[,11:17]}{subset matrix columns 11:17}
+\command{range(y)}{17 23}
+\command{unique(c(1,1,2,2,3))}{1 2 3}
+\sectiontitle{Matrices}
+\texttt{
+	\textgreater\,  x<-1:20 \hfill 
+	\textgreater\, y<-c("A","B","C","D") \hfill \\
+}
+\command{dim(x)<-c(4,5)}{create 4x5 matrix}
+
+%----------------------------------------------------------------------------------------
+\end{minipage} % End the second column of text
+} % End the second division of the page
+%----------------------------------------------------------------------------------------
+%	THIRD COLUMN SPECIFICATION 
+%----------------------------------------------------------------------------------------
+\put(200,200){ % Divide the page
+\begin{minipage}[t]{85mm} % Create a box to house tex
+
+%----------------------------------------------------------------------------------------
+%	IMPORTANT FILES
+%----------------------------------------------------------------------------------------
+\command{dim(x)}{4 5}
+\command{attributes(x)}{\$dim 4 5}
+\command{class(x)}{"matrix"}
+\command{str(M)}{display internal structure}
+\command{matrix(1:20,nrow=4,ncol=5)}{identical to x}
+\command{cbind(x,y)}{add column (all characters)}
+\command{M<-data.frame(x,y)}{add col (mixed int\&char)}
+\command{colnames(M)<-}{name columns}
+\command{rownames(M)<-}{name rows}
+\command{colMeans(M[1:4])}{column 1-4 means}
+\sectiontitle{Functions}
+\command{function(arg1,arg2)expr}{basic syntax}
+\command{function(x,y)x+y}{sum var x and y}
+\command{function(x,y=1)x+y}{default value for y}
+\command{args(function)}{show function arguments}
+\command{f<-function(fun,x)fun(x)}{pass function as arg}
+\command{f(function(x)x+1,6)}{anonymous function}
+\command{(...)}{one or more R objects}
+\command{function(...)\{paste(">",...,"<")\}}{>...<}
+\command{paste(...,sep=" ")}{args after ... must be default}
+\command{list1[["arg"]]}{extract named argument}
+\command{"\%t\%"<-function(x,y){x*y}}{binary operator}
+\command{4 \%t\% 6}{24}
+\command{lapply(list,fun)}{applies function to list}
+\command{sapply(list,fun)}{returns vector/matrix}
+\command{lapply(x,function(arg)expr)}{apply anon fun}
+\command{vapply(x,f,numeric(1))}{expect elements num of length 1}
+\command{table(x,y)}{counts at each combi}
+\command{tapply()}{split data into groups}
+\command{tapply(X,INDEX,fun)}{fun(X) for each INDEX }
+
+\sectiontitle{Simulation}
+\command{sample(1:6,4,replace=T)}{roll 4 dices}
+\command{sample(0:1,10,rep=T,pro=c(0.4,0.6))}{false coin}
+\command{rbinom(n,size,prob)}{binomial distribution}
+\command{rnorm(n,mean=0,sd=1)}{normal distribution}
+\command{rpois(n,lambda)}{discrete poisson}
+\command{replicate(n,expr)}{perform expr n times}
+\command{hist(x)}{plot histogram}
+%----------------------------------------------------------------------------------------
+%	FOOTNOTE
+%----------------------------------------------------------------------------------------
+
+
+\linethickness{0.2mm} % Thickness of the footer line
+{\color{black}\line(1,0){30}} % Print the line with a custom color
+
+\footnotesize{
+Created by Raoul Grouls, 2017\\
+verbatim of swirl package
+\url{http://swirlstats.com/}
+				
+Released under the MIT license.}
+
+%----------------------------------------------------------------------------------------
+
+\end{minipage} % End the third column of text
+} % End the third division of the page
+\end{picture} % End the container for the entire page
+
+%----------------------------------------------------------------------------------------
+
+\end{document}
