@@ -155,7 +155,15 @@ pdfauthor={R.Grouls},
 \command{\texttt{d = i;}}{coverteert \texttt{int} naar \texttt{double}}
 \command{\texttt{i = d;}}{\texttt{ERROR}}
 \command{\texttt{i = (int) d;}}{cast \texttt{double} naar \texttt{int}}
-
+\sectiontitle{6.2-5: Herhaling}
+\command{\texttt{bool waarde}}{waarde is \texttt{true} of \texttt{false}}
+\command{\texttt{while(waarde)}}{herhaling bij \texttt{true}}
+\command{\texttt{while(waarde)}}{stopt bij \texttt{false}}
+\command{vergelijkings-operatoren}{ <, <=, >, >=, ==, !=}
+\command{\texttt{<, ==, !=}}{kleiner dan, is gelijk aan, ongelijk aan}
+\command{Logische operatoren}{\texttt{\&\&}(en), \texttt{||}(of), \texttt{!}(niet)}
+\command{\texttt{i++}}{\texttt{i} wordt opgehoogd}
+\command{\texttt{for(i=0;i<10;i++)}}{herhaalt 10x}
 %----------------------------------------------------------------------------------------
 \end{minipage} % End the second column of text
 } % End the second division of the page
@@ -164,13 +172,16 @@ pdfauthor={R.Grouls},
 %----------------------------------------------------------------------------------------
 \put(200,200){ % Divide the page
 \begin{minipage}[t]{85mm} % Create a box to house tex
-\sectiontitle{}
+\command{niet uitgevoerde herhaling}{\texttt{while(1==0)}}
+\command{oneindige herhaling}{\texttt{while (1==1)}}
 %	FOOTNOTE
 %----------------------------------------------------------------------------------------
 \linethickness{0.2mm} % Thickness of the footer line
 {\color{black}\line(1,0){30}} % Print the line with a custom color
-\footnotesize{
-Created by Raoul Grouls, 2017
+\footnotesize{\\
+Created by: \\
+Raoul Grouls, Casper van Laar\\
+2017
 }
 
 %----------------------------------------------------------------------------------------
