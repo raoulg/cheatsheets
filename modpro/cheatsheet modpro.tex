@@ -13,7 +13,7 @@
 % cheatsheet voor Modelleren en Programmeren
 % gemaakt door R.Grouls
 
-\documentclass[10pt]{scrartcl} % 11pt font size
+\documentclass[10pt]{scrartcl} % 10pt font size
 \usepackage[utf8]{inputenc} % Required for inputting international characters
 \usepackage[T1]{fontenc} % Output font encoding for international characters
 \usepackage[margin=0pt, landscape]{geometry} % Page margins and orientation
@@ -34,6 +34,7 @@ pdfauthor={R.Grouls},
 \newcommand{\command}[2]{#1~\dotfill{}~#2\\} % Custom command for adding a shorcut
 
 \newcommand{\raw}{$\rightarrow$} % shortcut voor arrows
+\usepackage[scaled=.8]{beramono}
 \newcommand{\sectiontitle}[1]{\vfill \textbf{#1}\\}
 
 %----------------------------------------------------------------------------------------
@@ -84,12 +85,12 @@ pdfauthor={R.Grouls},
 \command{class-members}{(public/private)(static)(type/void)}
 \command{method body}{declaratie/opdracht}
 \command{declaratie}{reserveert geheugen}
-\command{declaratie}{\texttt{int x; string naam;}}
+\command{declaratie}{\texttt{int i; string naam;}}
 \command{opdracht}{aanroep/toekenning}
 \command{opdracht-aanroep}{roept andere methode aan}
 \command{opdracht-aanroep}{\texttt{Console.Writeline(x);}}
 \command{opdracht-toekenning}{verandert het geheugen}
-\command{opdracht-toekenning}{\texttt{x = 1; naam.Text = "a";}}
+\command{opdracht-toekenning}{\texttt{i = 1; naam.Text = "a";}}
 \command{property}{eigenschap van een object}
 \command{subklasse}{subversie van bestaande klasse}
 \command{subklasse}{\texttt{class scherm : Form}}
@@ -111,7 +112,6 @@ pdfauthor={R.Grouls},
 \command{library}{\texttt{using System.Drawing;}}
 \command{\texttt{Paint}-event}{\texttt{(object o, PaintEventArgs pea)}}
 \command{\texttt{pea.Graphics}}{property van \texttt{pea}}
-\command{\texttt{pea.Graphics.DrawLine()}}{tekent lijnen}
 %----------------------------------------------------------------------------------------
 \end{minipage} % End the first column of text
 } % End the first division of the page
@@ -120,12 +120,16 @@ pdfauthor={R.Grouls},
 %----------------------------------------------------------------------------------------
 \put(105,200){ % Divide the page
 \begin{minipage}[t]{85mm} % Create a box to house text
+\command{\texttt{pea.Graphics.DrawLine()}}{tekent lijnen}
 \command{\texttt{DrawLine,Rectangle,Ellipse}}{gebruiken \texttt{Pen}}
 \command{\texttt{FillRectangle,Ellipse}}{gebruiken \texttt{Brush}}
 \command{\texttt{DrawString}}{gebruikt \texttt{Brush}}
+\command{\texttt{Offset}}{verplaats positie}
+\command{\texttt{Inflate}}{vergroot}
 \sectiontitle{3.3-5 Berekeningen}
 \command{expressie}{alle code met een waarde}
-\command{expressie}{int, string, object-waarde,constructor \texttt{new}}
+\command{expressie}{bv: int, string}
+\command{expressie}{ook: object-waarde,constructor \texttt{new}}
 \command{\texttt{new Form()}}{heeft \texttt{Form}-object als waarde}
 \command{expressie}{kun je \textit{uitrekenen} en heeft \textit{waarde}}
 \command{opdracht}{kun je \textit{uitvoeren} en heeft \textit{effect}}
@@ -146,23 +150,20 @@ pdfauthor={R.Grouls},
 \command{\texttt{decimal}}{16 bytes met punt}
 \command{opdrachten}{veranderen variabelen}
 \command{methoden}{bewerken objecten}
+\command{properties}{opvraagbaar van objecten}
 \command{twee object-variabelen}{\texttt{struct} en \texttt{class}}
 \command{bij \texttt{struct}}{toekenningen reserveren geheugenruimte}
 \command{bij \texttt{class}}{toekenningen verwijzen naar objecten}
 \command{\texttt{class} object verandert}{impact op alle verwijzingen}
-\sectiontitle{4.4 typeringen}
-\texttt{int i; double d;}\\
-\command{\texttt{d = i;}}{coverteert \texttt{int} naar \texttt{double}}
+\command{primitief type}{\texttt{int, double, bool}}
+\command{object type}{\texttt{Color, Button, Form}}
+\command{\texttt{null}}{verwijst naar niks}
+\command{\texttt{double d = i;}}{coverteert \texttt{int} naar \texttt{double}}
 \command{\texttt{i = d;}}{\texttt{ERROR}}
 \command{\texttt{i = (int) d;}}{cast \texttt{double} naar \texttt{int}}
 \sectiontitle{5 Interactie}
 \command{geneste namespace}{\texttt{System.Windows.Forms} in \texttt{System}}
 \command{\texttt{Forms}}{bevat o.a. klassen \texttt{TextBox} en \texttt{Button}}
-\command{\texttt{Click}}{event-property van \texttt{Button}}
-\command{string naar double}{\texttt{double.Parse(invoer.Text);}}
-\command{double naar string}{\texttt{d.ToString();}}
-\sectiontitle{6.2-5: Herhaling}
-\command{\texttt{bool waarde;}}{waarde is \texttt{true} of \texttt{false}}
 %----------------------------------------------------------------------------------------
 \end{minipage} % End the second column of text
 } % End the second division of the page
@@ -171,6 +172,11 @@ pdfauthor={R.Grouls},
 %----------------------------------------------------------------------------------------
 \put(200,200){ % Divide the page
 \begin{minipage}[t]{85mm} % Create a box to house tex
+\command{\texttt{Click}}{event-property van \texttt{Button}}
+\command{string naar double}{\texttt{double.Parse(invoer.Text);}}
+\command{double naar string}{\texttt{d.ToString();}}
+\sectiontitle{6.2-5: Herhaling}
+\command{\texttt{bool waarde;}}{waarde is \texttt{true} of \texttt{false}}
 \command{\texttt{while(waarde)}}{herhaling bij \texttt{true}}
 \command{\texttt{while(waarde)}}{stopt bij \texttt{false}}
 \command{vergelijkings-operatoren}{ <, <=, >, >=, ==, !=}
@@ -180,16 +186,29 @@ pdfauthor={R.Grouls},
 \command{\texttt{for(i=0;i<10;i++)}}{herhaalt 10x}
 \command{niet uitgevoerde herhaling}{\texttt{while(1==0)}}
 \command{oneindige herhaling}{\texttt{while (1==1)}}
-\sectiontitle{9. Array's}
+\sectiontitle{7.1-4: Keuze}
+\command{\texttt{if(waarde)}}{uitvoering bij \texttt{true}}
+\command{\texttt{else}}{uitvoeren bij \texttt{if(false)}}
+\command{\texttt{else if}}{\texttt{if x<1 (..) else if x<2 (..)}}
+\command{\texttt{return}}{direct terug naar aanroepende methode}
+\command{\texttt{exception}}{potenti\"ele fout}
+\command{\texttt{catch}}{vangt fout op}
+\command{\texttt{try-catch}}{voert \texttt{try\{\}} uit, \texttt{catch()\{\}} bij \texttt{Exception}}
+\command{\texttt{catch(Exception e)\{\}}}{uitvoer bij alle fouten}
+\command{\texttt{catch(IOException e)\{\}}}{uitvoer bij \texttt{IOException}}
+\command{\texttt{parse}}{maakt van een string een \texttt{int}}
+\command{\texttt{invalidate}}{upgedate methode uitvoeren}  
+\sectiontitle{9.1-2 Array's}
 \command{array}{object met lijst variabelen van \'e\'en type}
 \command{array declaratie}{\texttt{int [] k;}}
 \command{array toekenningsopdracht}{\texttt{k = new int[5];}}
+\command{delaratie met initialisatie}{\texttt{int[] l = \{0,12,44,3,7\}}}
 \command{array index}{array's start at \texttt{0}}
 \command{array waarden}{\texttt{k[0] = 12;}}
 \command{\texttt{l.Length}}{\texttt{5}}
 \command{\texttt{for(i=0;i<l.Length;i++)\{lijst[i]=12\}}}{alles 12}
 \command{array van objecten}{\texttt{Button [] knoppen;}}
-\command{array 2-dimensionaal}{int [,] m;}
+\command{array 2-dimensionaal}{\texttt{int [,] m;}}
 \command{array van arrays}{\texttt{int[][] n;}}
 \command{\texttt{n[1]=new int[5];n[2]=new int[10]}}{lengte 5 en 10}
 \command{overloaded methoden}{alleen andere input-parameters}
@@ -199,11 +218,10 @@ pdfauthor={R.Grouls},
 {\color{black}\line(1,0){30}} % Print the line with a custom color
 \footnotesize{\\
 Created by: \\
-Raoul Grouls, Casper van Laar\\
+Raoul Grouls \& Casper van Laar\\
 Notatie: alle C\#-code is herkenbaar aan het \texttt{typewriter-font}
 2017
 }
-
 %----------------------------------------------------------------------------------------
 \end{minipage} % End the third column of text
 } % End the third division of the page
