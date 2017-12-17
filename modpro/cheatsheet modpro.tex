@@ -2,35 +2,25 @@
 % Cheatsheet
 % LaTeX Template
 % Version 1.0 (12/12/15)
-%
 % This template has been downloaded from:
 % http://www.LaTeXTemplates.com
-%
 % Original author:
 % Michael Müller (https://github.com/cmichi/latex-template-collection) with
 % extensive modifications by Vel (vel@LaTeXTemplates.com)
-%
 % License:
 % The MIT License (see included LICENSE file)
-%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%----------------------------------------------------------------------------------------
-%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
-%----------------------------------------------------------------------------------------
+% cheatsheet voor Modelleren en Programmeren
+% gemaakt door R.Grouls
 
 \documentclass[10pt]{scrartcl} % 11pt font size
-
 \usepackage[utf8]{inputenc} % Required for inputting international characters
 \usepackage[T1]{fontenc} % Output font encoding for international characters
-
 \usepackage[margin=0pt, landscape]{geometry} % Page margins and orientation
-
 \usepackage{graphicx} % Required for including images
 \usepackage{color} % Required for color customization
 \usepackage{url} % Required for the \url command to easily display URLs
 \usepackage{textcomp}
-
 \usepackage[ % This block contains information used to annotate the PDF
 colorlinks=false, 
 pdftitle={Cheatsheet Wiskunde I}, 
@@ -41,22 +31,17 @@ pdfauthor={R.Grouls},
 \setlength{\parindent}{0pt} % Stop paragraph indentation
 
 \renewcommand{\dots}{\ \dotfill{}\ } % Fills in the right amount of dots
-
 \newcommand{\command}[2]{#1~\dotfill{}~#2\\} % Custom command for adding a shorcut
-\newcommand{\raw}{$\rightarrow$}
-%\newcommand{\sectiontitle}[1]{\paragraph{#1} \ \\} % Custom command for subsection titles
+
+\newcommand{\raw}{$\rightarrow$} % shortcut voor arrows
 \newcommand{\sectiontitle}[1]{\vfill \textbf{#1}\\}
 
 %----------------------------------------------------------------------------------------
-
 \begin{document}
-
 \begin{picture}(297,210) % Create a container for the page content
-
 %----------------------------------------------------------------------------------------
 %	TITLE SECTION 
 %----------------------------------------------------------------------------------------
-
 \put(10,200){ % Position on the page to put the title
 \begin{minipage}[t]{210mm} % The size and alignment of the title
 \section*{ModProg -- I} % Title
@@ -66,7 +51,6 @@ pdfauthor={R.Grouls},
 %----------------------------------------------------------------------------------------
 %	FIRST COLUMN SPECIFICATION
 %----------------------------------------------------------------------------------------
-
 \put(10,190){ % Divide the page
 \begin{minipage}[t]{85mm} % Create a box to house text
 \sectiontitle{1.1-2: Programmeren}
@@ -148,9 +132,6 @@ pdfauthor={R.Grouls},
 \command{modulo \%}{8\%3=2}
 \command{\texttt{const}}{onaanpasbare declaratie}
 \command{\texttt{var}}{declaratie met automatische typebepaling}
-
-
-
 %----------------------------------------------------------------------------------------
 \end{minipage} % End the second column of text
 } % End the second division of the page
@@ -159,31 +140,17 @@ pdfauthor={R.Grouls},
 %----------------------------------------------------------------------------------------
 \put(200,200){ % Divide the page
 \begin{minipage}[t]{85mm} % Create a box to house tex
-
 \sectiontitle{}
-
-
-\sectiontitle{}
-
 %	FOOTNOTE
 %----------------------------------------------------------------------------------------
-
-
 \linethickness{0.2mm} % Thickness of the footer line
 {\color{black}\line(1,0){30}} % Print the line with a custom color
-
 \footnotesize{
-Created by Raoul Grouls, 2017\\
-
-				
-Released under the MIT license.}
+Created by Raoul Grouls, 2017
+}
 
 %----------------------------------------------------------------------------------------
-
 \end{minipage} % End the third column of text
 } % End the third division of the page
 \end{picture} % End the container for the entire page
-
-%----------------------------------------------------------------------------------------
-
 \end{document}
