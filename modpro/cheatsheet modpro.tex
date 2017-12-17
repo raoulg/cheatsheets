@@ -61,22 +61,23 @@ pdfauthor={R.Grouls},
 \command{namespace}{opdr.\raw meth.\raw klas.\raw namespace}
 \command{variabele}{geheugenplaats met een naam}
 \command{object}{variabelen\raw object}
-\sectiontitle{1.3 Programmeerparadigmas}
-\command{declaratief}{functie-based}
-\command{declaratief-functioneel}{legt funct. verbanden}
-\command{declaratief-logisch}{propositielogica}
-\command{imperatief}{opdracht-based (gebiedend)}
-\command{enkel imperatief}{bv: Fortran, Basic}
-\command{procedureel}{imperatief + methoden}
-\command{procedureel}{bv: Python, PHP}
-\command{object-geori\"enteerd}{procedureel + objecten}
-\command{object-geori\"enteerd}{bv: C\#, Java, C++}
-\sectiontitle{1.5 Vertalen}
-\command{assembler}{vertaalt 1 sourcecode voor 1 processor}
-\command{compiler}{vertaalt 1 sourcecode voor alle processors}
-\command{interpreter}{voert sourcecode direct uit}
-\command{Java}{compiler+interpreter \raw bytecode}
-\command{C\#}{compiler+compiler \raw intermediate language}
+\command{objecten}{hebben als type een \texttt{class}}
+%\sectiontitle{1.3 Programmeerparadigmas}
+%\command{declaratief}{functie-based}
+%\command{declaratief-functioneel}{legt funct. verbanden}
+%\command{declaratief-logisch}{propositielogica}
+%\command{imperatief}{opdracht-based (gebiedend)}
+%\command{enkel imperatief}{bv: Fortran, Basic}
+%\command{procedureel}{imperatief + methoden}
+%\command{procedureel}{bv: Python, PHP}
+%\command{object-geori\"enteerd}{procedureel + objecten}
+%\command{object-geori\"enteerd}{bv: C\#, Java, C++}
+%\sectiontitle{1.5 Vertalen}
+%\command{assembler}{vertaalt 1 sourcecode voor 1 processor}
+%\command{compiler}{vertaalt 1 sourcecode voor alle processors}
+%\command{interpreter}{voert sourcecode direct uit}
+%\command{Java}{compiler+interpreter \raw bytecode}
+%\command{C\#}{compiler+compiler \raw intermediate language}
 \sectiontitle{2. C\# programma's}
 \command{opbouw broncode}{class\{methode\{opdracht\}\}\}}
 \command{class}{public/private}
@@ -94,14 +95,6 @@ pdfauthor={R.Grouls},
 \command{subklasse}{\texttt{class scherm : Form}}
 \command{constructormethode}{maakt \texttt{new} object}
 \command{constructormethode}{methode met naam van class}
-%----------------------------------------------------------------------------------------
-\end{minipage} % End the first column of text
-} % End the first division of the page
-%----------------------------------------------------------------------------------------
-%	SECOND COLUMN SPECIFICATION 
-%----------------------------------------------------------------------------------------
-\put(105,200){ % Divide the page
-\begin{minipage}[t]{85mm} % Create a box to house text
 \command{\texttt{this}}{object dat door methode bewerkt wordt}
 \command{\texttt{public}}{bruikbaar in andere klasses}
 \command{property van object}{\texttt{naam.Length}}
@@ -118,7 +111,15 @@ pdfauthor={R.Grouls},
 \command{library}{\texttt{using System.Drawing;}}
 \command{\texttt{Paint}-event}{\texttt{(object o, PaintEventArgs pea)}}
 \command{\texttt{pea.Graphics}}{property van \texttt{pea}}
-\command{\texttt{pea.Graphics.DrawLine()}}{tekentlijnen}
+\command{\texttt{pea.Graphics.DrawLine()}}{tekent lijnen}
+%----------------------------------------------------------------------------------------
+\end{minipage} % End the first column of text
+} % End the first division of the page
+%----------------------------------------------------------------------------------------
+%	SECOND COLUMN SPECIFICATION 
+%----------------------------------------------------------------------------------------
+\put(105,200){ % Divide the page
+\begin{minipage}[t]{85mm} % Create a box to house text
 \command{\texttt{DrawLine,Rectangle,Ellipse}}{gebruiken \texttt{Pen}}
 \command{\texttt{FillRectangle,Ellipse}}{gebruiken \texttt{Brush}}
 \command{\texttt{DrawString}}{gebruikt \texttt{Brush}}
@@ -132,6 +133,29 @@ pdfauthor={R.Grouls},
 \command{modulo \%}{8\%3=2}
 \command{\texttt{const}}{onaanpasbare declaratie}
 \command{\texttt{var}}{declaratie met automatische typebepaling}
+\command{\texttt{void}-methode}{geldt als opdracht}
+\command{methode m\'et returntype}{geldt als expressie}
+\sectiontitle{4 Variabelen}
+\command{\texttt{sbyte}}{[-128,127] (1 byte, $2^8$)}
+\command{\texttt{short}}{2 bytes ($2^{16}$, ook -)}
+\command{\texttt{int}}{4 bytes ($2^{64}$, ook -)}
+\command{\texttt{long}}{8 bytes ($2^{128}$, ook -)}
+\command{\texttt{byte,ushort,uint,ulong}}{zonder -}
+\command{\texttt{float}}{4 bytes met punt}
+\command{\texttt{double}}{8 bytes met punt}
+\command{\texttt{decimal}}{16 bytes met punt}
+\command{opdrachten}{veranderen variabelen}
+\command{methoden}{bewerken objecten}
+\command{twee object-variabelen}{\texttt{struct} en \texttt{class}}
+\command{bij \texttt{struct}}{toekenningen reserveren geheugenruimte}
+\command{bij \texttt{class}}{toekenningen verwijzen naar objecten}
+\command{\texttt{class} object verandert}{impact op alle verwijzingen}
+\sectiontitle{4.4 typeringen}
+\texttt{int i; double d;}\\
+\command{\texttt{d = i;}}{coverteert \texttt{int} naar \texttt{double}}
+\command{\texttt{i = d;}}{\texttt{ERROR}}
+\command{\texttt{i = (int) d;}}{cast \texttt{double} naar \texttt{int}}
+
 %----------------------------------------------------------------------------------------
 \end{minipage} % End the second column of text
 } % End the second division of the page
